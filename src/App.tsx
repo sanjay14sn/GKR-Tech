@@ -12,6 +12,7 @@ import Blog from './pages/Blog';
 import BlogDetails from './pages/BlogDetails';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
+import WhyChooseUs from './pages/WhyChooseUs';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/why-choose-us" element={<WhyChooseUs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/projects" element={<Projects />} />

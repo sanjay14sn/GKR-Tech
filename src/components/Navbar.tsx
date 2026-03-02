@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Mail, Clock, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { MapPin, Mail, Clock, Facebook, Twitter, Linkedin, ChevronDown } from 'lucide-react';
 
 const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -62,14 +62,32 @@ const Navbar: React.FC = () => {
                     <nav className="flex items-center gap-8 font-medium">
                         {/* Added dynamic text color based on scroll state if needed */}
                         <Link to="/" className="hover:text-[#086ad8] transition-colors">Home</Link>
-                        <Link to="/about" className="hover:text-[#086ad8] transition-colors">About</Link>
+
+                        {/* --- About Dropdown --- */}
+                        <div className="relative group cursor-pointer">
+                            <span className="hover:text-[#086ad8] transition-colors flex items-center gap-1">
+                                About <ChevronDown size={14} className="group-hover:rotate-180 transition-transform" />
+                            </span>
+                            <div className="absolute top-full left-0 bg-transparent min-w-[200px] hidden group-hover:flex flex-col pt-4 animate-fade-in">
+                                <div className="bg-white shadow-xl rounded-lg border border-gray-100 py-2 flex flex-col text-gray-800">
+                                    <Link to="/about" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">About Company</Link>
+                                    <Link to="/why-choose-us" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">Why Choose Us</Link>
+                                </div>
+                            </div>
+                        </div>
+
                         <Link to="/services" className="hover:text-[#086ad8] transition-colors">Services</Link>
                         <Link to="/projects" className="hover:text-[#086ad8] transition-colors">Projects</Link>
+
                         <div className="relative group cursor-pointer">
-                            <span className="hover:text-[#086ad8] transition-colors">Pages</span>
-                            <div className="absolute top-full left-0 bg-white min-w-[180px] shadow-xl hidden group-hover:flex flex-col py-2 rounded-lg mt-4 border border-gray-100 animate-fadeIn text-gray-800">
-                                <Link to="/team" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">Team</Link>
-                                <Link to="/blog" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">Blog</Link>
+                            <span className="hover:text-[#086ad8] transition-colors flex items-center gap-1">
+                                Pages <ChevronDown size={14} className="group-hover:rotate-180 transition-transform" />
+                            </span>
+                            <div className="absolute top-full left-0 bg-transparent min-w-[180px] hidden group-hover:flex flex-col pt-4 animate-fade-in">
+                                <div className="bg-white shadow-xl rounded-lg border border-gray-100 py-2 flex flex-col text-gray-800">
+                                    <Link to="/team" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">Team</Link>
+                                    <Link to="/blog" className="px-6 py-2 text-sm hover:bg-gray-50 hover:text-[#086ad8] transition-colors">Blog</Link>
+                                </div>
                             </div>
                         </div>
                         <Link to="/contact" className="hover:text-[#086ad8] transition-colors">Contact</Link>

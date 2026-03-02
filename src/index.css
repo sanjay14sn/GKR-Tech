@@ -22,11 +22,24 @@
   --shadow-btn-primary-hover: 0 8px 25px rgba(0, 102, 255, 0.4);
 
   --animate-fade-in-up: fadeInUp 0.8s forwards;
+  --animate-fade-in: fadeIn 0.3s ease-out;
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
       transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
 
     to {
