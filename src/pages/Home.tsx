@@ -5,6 +5,7 @@ const Home: React.FC = () => {
     return (
         <div className="pt-[100px] font-sans">
             {/* Hero Section */}
+            {/* Hero Section */}
             <section className="py-[50px] md:py-[100px] bg-white overflow-hidden">
                 <div className="max-w-[1170px] mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
@@ -97,7 +98,17 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Right Column: Content */}
-                    <div className="flex-1">
+                    <div className="flex-1 relative">
+                        {/* DOTS BACKGROUND PATTERN */}
+                        {/* We position it absolutely behind the text (-z-10) */}
+                        <div className="absolute top-0 right-0 w-[80%] h-full -z-10 opacity-60"
+                            style={{
+                                backgroundImage: 'radial-gradient(#cbd5e1 2px, transparent 2px)',
+                                backgroundSize: '30px 30px'
+                            }}>
+                        </div>
+
+                        {/* Content */}
                         <h2 className="text-[32px] md:text-[40px] font-bold text-[#0e2a47] leading-tight mb-6">
                             Experience your Product with Integration
                         </h2>

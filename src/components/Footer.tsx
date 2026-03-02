@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
                 <div className="space-y-6">
                     <Link to="/" className="flex items-center gap-2 text-2xl font-extrabold text-white">
                         <span className="bg-primary bg-gradient-to-br from-[#086ad8] to-[#054a96] text-white w-[35px] h-[35px] flex items-center justify-center rounded-lg text-lg">T</span>
-                        <span className="logo-text">Tanda</span>
+                        <span className="logo-text">GKR Tech</span>
                     </Link>
                     <p className="text-gray-400 leading-relaxed text-base">
                         A premium SaaS IT solutions company. We provide state-of-the-art technological solutions for businesses.

@@ -16,8 +16,8 @@ const Navbar: React.FC = () => {
         <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${isScrolled ? 'py-4 bg-white shadow-md' : 'py-6 bg-transparent'}`}>
             <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
                 <Link to="/" className="flex items-center gap-2 text-2xl font-extrabold text-secondary">
-                    <span className="bg-primary bg-gradient-to-br from-[#086ad8] to-[#054a96] text-white w-[35px] h-[35px] flex items-center justify-center rounded-lg text-lg">T</span>
-                    <span className="logo-text">Tanda</span>
+                    <span className="bg-primary bg-gradient-to-br from-[#086ad8] to-[#054a96] text-white w-[35px] h-[35px] flex items-center justify-center rounded-lg text-lg">G</span>
+                    <span className="logo-text">GKR Tech</span>
                 </Link>
                 <nav className="flex items-center gap-8 font-medium">
                     <Link to="/" className="text-secondary hover:text-primary transition-colors">Home</Link>
