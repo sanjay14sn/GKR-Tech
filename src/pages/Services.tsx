@@ -9,7 +9,7 @@ const Services: React.FC = () => {
         { id: 2, title: 'Cyber Security', desc: 'Advanced protection for your digital assets.', img: securityImg },
         { id: 3, title: 'Cloud Solutions', desc: 'Scalable cloud computing and storage.', img: cloudImg },
         { id: 4, title: 'Software Dev', desc: 'Custom software tailored to your needs.', img: itImg },
-        { id: 5, title: 'UI/UX Design', desc: 'Beautiful and functional user interfaces.', img: cloudImg },
+        { id: 5, title: 'UI/UX Designs', desc: 'Beautiful and functional user interfaces.', img: cloudImg },
         { id: 6, title: 'App Development', desc: 'Mobile apps for iOS and Android.', img: securityImg },
     ];
 
