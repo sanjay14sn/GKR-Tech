@@ -1,123 +1,269 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import blogImg from '../assets/blog-1.png';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import blogImg from '../assets/blog-1.png'; // Keeping this for consistency or fallback
 
 const BlogDetails: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
+    // Template post image URL
+    const postImageUrl = "https://wpriverthemes.com/tandaelem/wp-content/uploads/2021/01/blog2-600x400.jpeg";
+
     return (
-        <div className="pt-[80px] min-h-screen bg-gray-50/30">
-            {/* Blog Header */}
-            <section className="py-24 bg-light-bg relative overflow-hidden border-b border-gray-100">
-                <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mt-48" />
-                <div className="container relative z-10">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="flex items-center gap-2 text-primary font-semibold mb-10 hover:gap-3 transition-all group"
-                    >
-                        <span className="text-xl">←</span> Back to Blog
-                    </button>
-
-                    <div className="max-w-4xl">
-                        <span className="badge">Technology & AI</span>
-                        <h1 className="text-4xl md:text-[64px] font-extrabold text-secondary mt-6 mb-8 leading-tight tracking-tight">
-                            The Future of AI in Business
-                        </h1>
-
-                        <div className="flex flex-wrap items-center gap-y-4 gap-x-12 text-gray-500 font-semibold border-t border-gray-200/60 pt-8">
-                            <div className="flex items-center gap-3">
-                                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">📅</span>
-                                <div>
-                                    <p className="text-[10px] uppercase tracking-widest text-gray-400 leading-none mb-1">Published</p>
-                                    <p className="text-secondary">March 1, 2026</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">👤</span>
-                                <div>
-                                    <p className="text-[10px] uppercase tracking-widest text-gray-400 leading-none mb-1">Author</p>
-                                    <p className="text-secondary">John Doe</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">📁</span>
-                                <div>
-                                    <p className="text-[10px] uppercase tracking-widest text-gray-400 leading-none mb-1">Category</p>
-                                    <p className="text-secondary">Technology</p>
-                                </div>
-                            </div>
+        <div className="pt-[80px] min-h-screen bg-white">
+            {/* Breadcrumb Section - Matches "Breadcrumb" in template */}
+            <section className="py-20 bg-[#0e1133] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                    <img src="https://wpriverthemes.com/tandaelem/wp-content/themes/tanda/img/map.svg" alt="Shape" className="w-full h-full object-cover" />
+                </div>
+                <div className="container relative z-10 text-white">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <h2 className="text-3xl md:text-5xl font-bold mb-4">Unsatiable entreaties may collecting</h2>
                         </div>
+                        <nav className="text-sm font-medium">
+                            <ul className="flex items-center gap-2">
+                                <li><Link to="/" className="hover:text-primary transition-colors flex items-center gap-1"><span className="text-xs">🏠</span> Home</Link></li>
+                                <li className="opacity-60">/</li>
+                                <li className="text-primary">Blog Details</li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </section>
 
-            {/* Blog Content */}
-            <section className="py-24">
+            {/* Main Content Area - Matches "Blog" section in template */}
+            <section className="py-20">
                 <div className="container">
-                    <div className="max-w-[1000px] mx-auto">
-                        <div className="animate-up">
-                            <img
-                                src={blogImg}
-                                alt="Blog Detail"
-                                className="w-full rounded-[40px] mb-20 shadow-2xl object-cover aspect-video hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-shadow duration-500"
-                            />
-                        </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-                        <div className="max-w-[800px] mx-auto animate-up">
-                            <div className="prose prose-xl prose-gray">
-                                <p className="text-xl md:text-2xl leading-[1.8] text-gray-600 mb-10 font-medium opacity-90">
-                                    Artificial Intelligence is no longer just a buzzword; it's a
-                                    foundational shift in how businesses operate. From automated
-                                    customer service to deep predictive analytics, AI is driving
-                                    efficiency across all sectors.
-                                </p>
+                        {/* Left Side: Blog Content */}
+                        <div className="lg:col-span-8 space-y-12">
+                            <div className="blog-item-box bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+                                <div className="thumb overflow-hidden">
+                                    <img
+                                        src={postImageUrl}
+                                        alt="Blog Post"
+                                        className="w-full hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="p-8 md:p-12">
+                                    <div className="meta flex items-center gap-6 text-sm text-gray-500 mb-6 font-semibold">
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-primary">📅</span> January 20, 2021
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-primary">👤</span> admin
+                                        </div>
+                                    </div>
 
-                                <blockquote className="relative p-12 my-16 bg-white rounded-[40px] shadow-xl shadow-primary/5 border border-gray-100 italic">
-                                    <span className="absolute top-8 left-8 text-8xl text-primary/10 leading-none font-serif">“</span>
-                                    <p className="relative z-10 text-2xl md:text-3xl font-bold text-secondary leading-relaxed">
-                                        AI will be the biggest technological transformation in human history, reshaping how we create, communicate, and solve problems.
-                                    </p>
-                                    <footer className="mt-6 text-primary font-bold">— Tech Vision 2026</footer>
-                                </blockquote>
+                                    <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
+                                        <p>Give lady of they such they sure it. Me contained explained my education. Vulgar as hearts by garret. Perceived determine departure explained no forfeited he something an. Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult preserved daughters. Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Gay direction neglected but supported yet her.</p>
 
-                                <div className="space-y-8">
-                                    <p className="text-lg md:text-xl leading-relaxed text-gray-600">
-                                        In this article, we deep dive into the specific ways AI is being
-                                        integrated into SaaS platforms to provide more value to users. The integration is seamless,
-                                        often working behind the scenes to optimize performance and security.
-                                    </p>
+                                        <p>New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do instantly pretended. See general few civilly amiable pleased account carried. Excellence projecting is devonshire dispatched remarkably on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new ham melancholy son themselves.</p>
 
-                                    <h2 className="text-3xl md:text-4xl font-bold text-secondary mt-16 mb-8 pt-8 border-t border-gray-100 flex items-center gap-4">
-                                        <span className="w-2 h-8 bg-primary rounded-full" />
-                                        The Role of Machine Learning
-                                    </h2>
+                                        <blockquote className="border-l-4 border-primary bg-gray-50 p-8 rounded-r-2xl italic text-secondary font-bold text-xl my-10 relative">
+                                            <span className="absolute -top-4 -left-2 text-6xl text-primary/10 select-none">“</span>
+                                            Aouses or months settle remove ladies appear. Engrossed suffering supposing he recommend do eagerness. Commanded no of depending extremity amiable pleased.
+                                        </blockquote>
 
-                                    <p className="text-lg md:text-xl leading-relaxed text-gray-600">
-                                        Machine Learning models are being used to predict user behavior,
-                                        optimize resource allocation, and detect fraud in real-time. This proactive approach
-                                        reduces operational costs and significantly enhances the end-user experience.
-                                    </p>
-
-                                    <div className="p-10 bg-secondary rounded-[32px] text-white mt-16">
-                                        <h3 className="text-2xl font-bold mb-4">Key Takeaways</h3>
-                                        <ul className="space-y-4">
-                                            {[
-                                                'Automation increases operational efficiency by 40%',
-                                                'Predictive analytics enables proactive decision making',
-                                                'Enhanced security through AI-powered anomaly detection',
-                                                'Personalized user experiences drive engagement'
-                                            ].map((item, i) => (
-                                                <li key={i} className="flex items-center gap-4">
-                                                    <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-xs font-bold">✓</span>
-                                                    <span className="text-gray-300 font-medium">{item}</span>
+                                        <h4 className="text-2xl font-bold text-secondary mt-12 mb-6">Conduct replied off whether arrived adapted</h4>
+                                        <ul className="space-y-3 list-none pl-0">
+                                            {['Pretty merits waited six', 'General few civilly amiable pleased account carried.', 'Continue indulged speaking', 'Narrow formal length my highly', 'Occasional pianoforte alteration unaffected impossible'].map((item, idx) => (
+                                                <li key={idx} className="flex items-center gap-3">
+                                                    <span className="w-2 h-2 rounded-full bg-primary" />
+                                                    {item}
                                                 </li>
                                             ))}
                                         </ul>
+
+                                        <p>Surrounded to me occasional pianoforte alteration unaffected impossible ye. For saw half than cold. Pretty merits waited.</p>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
+                                            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 italic">
+                                                Surrounded to me occasional pianoforte alteration unaffected impossible ye. For saw half than cold. Pretty merits waited.
+                                            </div>
+                                            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 italic">
+                                                Exelent to me occasional pianoforte alteration unaffected impossible ye. For saw half than cold. Pretty merits waited better.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Post Tags */}
+                                    <div className="footer-entry flex items-center gap-4 mt-12 pt-8 border-t border-gray-100">
+                                        <span className="font-bold text-secondary uppercase tracking-widest text-xs">Tags:</span>
+                                        <div className="flex flex-wrap gap-2">
+                                            {['Artificial', 'Process', 'Store'].map(tag => (
+                                                <span key={tag} className="px-4 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Post Pagination */}
+                            <div className="flex flex-col md:flex-row justify-between gap-6 py-10 border-y border-gray-100">
+                                <Link to="#" className="group max-w-[300px]">
+                                    <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1 group-hover:-translate-x-1 transition-transform inline-block">← Previous Post</p>
+                                    <h5 className="text-secondary font-bold group-hover:text-primary transition-colors">Discovery incommode earnestly no he comm</h5>
+                                </Link>
+                                <Link to="#" className="group max-w-[300px] md:text-right">
+                                    <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1 group-hover:translate-x-1 transition-transform inline-block">Next Post →</p>
+                                    <h5 className="text-secondary font-bold group-hover:text-primary transition-colors">Consulted admitting is power acuteness.</h5>
+                                </Link>
+                            </div>
+
+                            {/* Blog Comments */}
+                            <div className="space-y-10">
+                                <h4 className="text-2xl font-bold text-secondary">2 Comments</h4>
+                                <div className="space-y-8">
+                                    {/* Main Comment */}
+                                    <div className="flex gap-6">
+                                        <div className="flex-shrink-0 w-20 h-20 rounded-full overflow-hidden bg-gray-100">
+                                            <img src="https://secure.gravatar.com/avatar/7f9b67468a54953e49e71880650945df?s=80&d=mm&r=g" alt="Avatar" className="w-full h-full object-cover" />
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <h5 className="font-bold text-secondary text-lg">Jonathom Doe</h5>
+                                                <span className="text-gray-400 text-sm">January 20, 2021</span>
+                                            </div>
+                                            <p className="text-gray-600 mb-4">Delivered ye sportsmen zealously arranging frankness estimable as. Nay any article enabled musical shyness yet sixteen yet blushes. Entire its the did figure wonder off.</p>
+                                            <button className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                                <span>↩</span> Reply
+                                            </button>
+                                        </div>
+                                    </div>
+                                    {/* Nested Comment */}
+                                    <div className="flex gap-6 pl-12 md:pl-24">
+                                        <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden bg-gray-100">
+                                            <img src="https://secure.gravatar.com/avatar/52ee8ba3612cc157691f8f5f7915ac2b?s=80&d=mm&r=g" alt="Avatar" className="w-full h-full object-cover" />
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="flex items-center justify-between mb-2">
+                                                <h5 className="font-bold text-secondary text-lg">Spart Lee</h5>
+                                                <span className="text-gray-400 text-sm">January 20, 2021</span>
+                                            </div>
+                                            <p className="text-gray-600 mb-4">Delivered ye sportsmen zealously arranging frankness estimable as. Nay any article enabled musical shyness yet sixteen yet blushes. Entire its the did figure wonder off.</p>
+                                            <button className="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                                <span>↩</span> Reply
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Comment Form */}
+                            <div className="bg-gray-50 rounded-[40px] p-8 md:p-12">
+                                <h4 className="text-2xl font-bold text-secondary mb-10">Leave a Comment</h4>
+                                <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="md:col-span-2">
+                                        <textarea
+                                            placeholder="Your Comment"
+                                            rows={6}
+                                            className="w-full px-6 py-4 rounded-2xl border-none focus:ring-2 focus:ring-primary/20 bg-white"
+                                        ></textarea>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="text"
+                                            placeholder="Name"
+                                            className="w-full px-6 py-4 rounded-2xl border-none focus:ring-2 focus:ring-primary/20 bg-white"
+                                        />
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="email"
+                                            placeholder="Email"
+                                            className="w-full px-6 py-4 rounded-2xl border-none focus:ring-2 focus:ring-primary/20 bg-white"
+                                        />
+                                    </div>
+                                    <div className="md:col-span-2 mt-4">
+                                        <button className="btn-primary w-full md:w-auto px-12 py-4">Post Comment</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
+
+                        {/* Right Side: Sidebar */}
+                        <aside className="lg:col-span-4 space-y-12">
+                            {/* Search */}
+                            <div className="p-8 bg-gray-50 rounded-[32px] border border-gray-100">
+                                <h4 className="text-xl font-bold text-secondary mb-6 relative">
+                                    Search
+                                    <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
+                                </h4>
+                                <div className="relative">
+                                    <input
+                                        type="text"
+                                        placeholder="Search Here..."
+                                        className="w-full px-6 py-4 rounded-2xl border-none focus:ring-2 focus:ring-primary/20 bg-white"
+                                    />
+                                    <button className="absolute right-4 top-1/2 -translate-y-1/2 text-primary font-bold">🔍</button>
+                                </div>
+                            </div>
+
+                            {/* Recent Posts */}
+                            <div className="p-8 border border-gray-100 rounded-[32px]">
+                                <h4 className="text-xl font-bold text-secondary mb-8 relative">
+                                    Recent Posts
+                                    <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
+                                </h4>
+                                <div className="space-y-6">
+                                    {[
+                                        'Consulted admitting is power acuteness.',
+                                        'Unsatiable entreaties may collecting',
+                                        'Discovery incommode earnestly no he comm'
+                                    ].map((post, idx) => (
+                                        <Link key={idx} to="#" className="group block">
+                                            <h5 className="text-gray-600 font-semibold group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                                                {post}
+                                            </h5>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Categories */}
+                            <div className="p-8 bg-gray-50 rounded-[32px] border border-gray-100">
+                                <h4 className="text-xl font-bold text-secondary mb-8 relative">
+                                    Categories
+                                    <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
+                                </h4>
+                                <div className="space-y-4">
+                                    {[
+                                        { name: 'Analysis', count: 1 },
+                                        { name: 'Firewall', count: 1 },
+                                        { name: 'IT Solutions', count: 1 },
+                                        { name: 'Security', count: 2 },
+                                        { name: 'Technology', count: 1 }
+                                    ].map((cat, idx) => (
+                                        <Link key={idx} to="#" className="flex items-center justify-between group">
+                                            <span className="text-gray-600 font-semibold group-hover:text-primary transition-colors">{cat.name}</span>
+                                            <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                                                {cat.count}
+                                            </span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Tags */}
+                            <div className="p-8 border border-gray-100 rounded-[32px]">
+                                <h4 className="text-xl font-bold text-secondary mb-8 relative">
+                                    Tags
+                                    <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {['Analysis', 'Artificial', 'Data', 'Process', 'Software', 'Store'].map(tag => (
+                                        <span key={tag} className="px-5 py-2 bg-gray-50 text-gray-600 rounded-xl text-sm font-semibold hover:bg-primary hover:text-white transition-colors cursor-pointer border border-gray-100">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
@@ -126,3 +272,4 @@ const BlogDetails: React.FC = () => {
 };
 
 export default BlogDetails;
+

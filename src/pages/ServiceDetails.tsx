@@ -10,7 +10,7 @@ const ServiceDetails: React.FC = () => {
             <section className="py-20 bg-light-bg">
                 <div className="max-w-[1200px] mx-auto px-6">
                     <span className="badge">Service Details</span>
-                    <h1 className="text-[56px] font-bold mt-4 mb-0 text-secondary">IT Management Solution</h1>
+                    <h1 className="text-4xl md:text-[56px] font-bold mt-4 mb-0 text-secondary leading-tight">IT Management Solution</h1>
                 </div>
             </section>
 

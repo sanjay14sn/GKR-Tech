@@ -10,11 +10,11 @@ const Projects: React.FC = () => {
     ];
 
     return (
-        <div className="pt-[80px]">
+        <div className="pt-[100px]">
             <section className="py-20 bg-light-bg text-center">
                 <div className="max-w-[1200px] mx-auto px-6">
                     <span className="badge">Portfolio</span>
-                    <h1 className="text-[56px] font-bold mt-4 mb-4 text-secondary">Our Case Studies</h1>
+                    <h1 className="text-4xl md:text-[56px] font-bold mt-4 mb-4 text-secondary">Our Case Studies</h1>
                     <p className="text-xl max-w-[600px] mx-auto text-gray-600">Explore how we've helped businesses achieve their goals through technology.</p>
                 </div>
             </section>

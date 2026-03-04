@@ -19,7 +19,7 @@ const ProjectDetails: React.FC = () => {
                         <span className="text-xl">←</span> Back to Projects
                     </button>
                     <span className="badge">Success Story</span>
-                    <h1 className="text-5xl md:text-[64px] font-extrabold mt-6 mb-4 text-secondary leading-tight tracking-tight">
+                    <h1 className="text-4xl md:text-[64px] font-extrabold mt-6 mb-4 text-secondary leading-tight tracking-tight">
                         Cyber Security Dashboard
                     </h1>
                     <p className="text-gray-500 text-xl max-w-2xl font-medium">
@@ -35,7 +35,7 @@ const ProjectDetails: React.FC = () => {
                         <img
                             src={projectImg}
                             alt="Project Detail"
-                            className="w-full rounded-[40px] shadow-2xl mb-24 object-cover aspect-video hover:shadow-[0_20px_50px_rgba(8,106,216,0.15)] transition-shadow duration-500"
+                            className="w-full rounded-[20px] md:rounded-[40px] shadow-2xl mb-12 md:mb-24 object-cover aspect-video hover:shadow-[0_20px_50px_rgba(8,106,216,0.15)] transition-shadow duration-500"
                         />
                     </div>
 

@@ -3,17 +3,17 @@ import blogImg from '../assets/blog-1.png';
 
 const Blog: React.FC = () => {
     const posts = [
-        { id: 1, title: 'The Future of AI in Business', date: 'March 1, 2026', author: 'John Doe', img: blogImg },
-        { id: 2, title: 'Scaling Your SaaS Infrastructure', date: 'Feb 25, 2026', author: 'Jane Smith', img: blogImg },
-        { id: 3, title: 'Cyber Security Trends for 2026', date: 'Feb 20, 2026', author: 'Mike Ross', img: blogImg },
+        { id: 1, title: 'Unsatiable entreaties may collecting', date: 'January 20, 2021', author: 'admin', img: "https://wpriverthemes.com/tandaelem/wp-content/uploads/2021/01/blog2-600x400.jpeg" },
+        { id: 2, title: 'Consulted admitting is power acuteness.', date: 'Feb 25, 2026', author: 'admin', img: blogImg },
+        { id: 3, title: 'Discovery incommode earnestly no he comm', date: 'Feb 20, 2026', author: 'admin', img: blogImg },
     ];
 
     return (
-        <div className="pt-[80px]">
+        <div className="pt-[100px]">
             <section className="py-20 bg-light-bg text-center">
                 <div className="max-w-[1200px] mx-auto px-6">
                     <span className="badge">Our Blog</span>
-                    <h1 className="text-[56px] font-bold mt-4 mb-4 text-secondary">Latest Tech Insights</h1>
+                    <h1 className="text-4xl md:text-[56px] font-bold mt-4 mb-4 text-secondary">Latest Tech Insights</h1>
                     <p className="text-xl max-w-[600px] mx-auto text-gray-600">Stay updated with the latest trends and architectural patterns in the tech world.</p>
                 </div>
             </section>
