@@ -36,11 +36,12 @@ const Home: React.FC = () => {
 
                     {/* Left Content */}
                     <div className="flex-1 z-10">
-                        <h1 className="text-[32px] sm:text-[40px] md:text-[60px] font-bold leading-[1.15] text-[#0e2a47] mb-[20px] md:mb-[30px] text-center md:text-left">
-                            GKR Technology <br className="hidden md:block" />
+                        <h1 className="text-[28px] sm:text-[36px] md:text-[52px] font-bold leading-[1.15] text-[#0e2a47] mb-[15px] md:mb-[25px] text-center md:text-left">
+                            GKR Technology Solutions <br className="hidden md:block" />
                             <span className="text-blue-600">Your End-to-End Technology Partner</span>
                         </h1>
-                        <p className="text-base md:text-lg leading-[26px] md:leading-[30px] text-gray-500 mb-[30px] md:mb-[40px] max-w-[500px] text-center md:text-left mx-auto md:mx-0">
+
+                        <p className="text-sm md:text-base leading-[24px] md:leading-[28px] text-gray-500 mb-[25px] md:mb-[35px] max-w-[450px] text-center md:text-left mx-auto md:mx-0">
                             We deliver end-to-end cybersecurity, IT infrastructure, datacenter, and GCC expertise under one roof. No handoffs. No gaps.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-[20px]">

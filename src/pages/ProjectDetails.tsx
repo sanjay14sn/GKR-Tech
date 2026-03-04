@@ -12,12 +12,7 @@ const ProjectDetails: React.FC = () => {
             <section className="py-24 bg-light-bg relative overflow-hidden border-b border-gray-100">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -mr-64 -mt-64" />
                 <div className="container relative z-10">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="flex items-center gap-2 text-primary font-semibold mb-8 hover:gap-3 transition-all group"
-                    >
-                        <span className="text-xl">←</span> Back to Projects
-                    </button>
+
                     <span className="badge">Success Story</span>
                     <h1 className="text-4xl md:text-[64px] font-extrabold mt-6 mb-4 text-secondary leading-tight tracking-tight">
                         Cyber Security Dashboard
@@ -101,10 +96,7 @@ const ProjectDetails: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <button className="btn btn-primary w-full mt-10 py-5 rounded-2xl text-lg group">
-                                        Project Live Link
-                                        <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">↗</span>
-                                    </button>
+
                                 </div>
 
                                 <div className="bg-secondary p-10 rounded-[32px] text-white">
