@@ -47,6 +47,18 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes bounce-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+  }
 }
 
 @layer base {
@@ -154,5 +166,9 @@
 @layer utilities {
   .animate-up {
     @apply animate-fade-in-up;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 5s ease-in-out infinite;
   }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import heroImg from '../assets/hero.png';
 
 const faqs = [
@@ -45,19 +46,19 @@ const Home: React.FC = () => {
                             We deliver end-to-end cybersecurity, IT infrastructure, datacenter, and GCC expertise under one roof. No handoffs. No gaps.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-[20px]">
-                            <div className="flex items-center gap-[15px]">
+                            <Link to="/about" className="flex items-center gap-[15px] group">
                                 <div className="relative flex items-center justify-center">
-                                    <span className="absolute inline-flex h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-600 opacity-75 animate-ping"></span>
-                                    <button className="relative w-[55px] h-[55px] md:w-[65px] md:h-[65px] rounded-full bg-blue-600 text-white flex items-center justify-center border-none cursor-pointer shadow-[0_10px_25px_rgba(37,99,235,0.4)] hover:scale-105 transition-transform z-10">
-                                        <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.333-5.89a1.5 1.5 0 000-2.538L6.3 2.841z" />
+                                    <span className="absolute inline-flex h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-600 opacity-20 group-hover:opacity-40 group-hover:scale-125 transition-all duration-300"></span>
+                                    <div className="relative w-[55px] h-[55px] md:w-[65px] md:h-[65px] rounded-full bg-blue-600 text-white flex items-center justify-center border-none cursor-pointer shadow-[0_10px_25px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform z-10">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                         </svg>
-                                    </button>
+                                    </div>
                                 </div>
-                                <span className="font-bold text-xs md:text-sm tracking-widest text-[#0e2a47] uppercase whitespace-nowrap">
-                                    WATCH PROMO
+                                <span className="font-bold text-xs md:text-sm tracking-widest text-[#0e2a47] uppercase whitespace-nowrap group-hover:text-blue-600 transition-colors">
+                                    DISCOVER MORE
                                 </span>
-                            </div>
+                            </Link>
                         </div>
                     </div>
 
@@ -282,13 +283,58 @@ const Home: React.FC = () => {
                 </div>
             </section>
             {/* Dashboard Screenshot Header */}
-            <section className="py-20 text-center">
-                <span className="text-blue-600 font-bold tracking-[2px] text-xs uppercase block mb-4">DASHBOARD SCREENSHOT</span>
-                <h2 className="text-[32px] md:text-[36px] font-bold text-[#0e2a47]">
-                    Let's See Awesome Software <br /> UI Design Screenshot
-                </h2>
-                <div className="w-[40px] h-[3px] bg-blue-600 mx-auto mt-6 rounded-full"></div>
+            <section className="py-20 bg-[#f8fafc]">
+                <div className="max-w-[1200px] mx-auto px-6 text-center">
+                    <span className="text-blue-600 font-bold tracking-[2px] text-xs uppercase block mb-4">DASHBOARD SCREENSHOT</span>
+                    <h2 className="text-[32px] md:text-[36px] font-bold text-[#0e2a47]">
+                        Let's See Awesome Software <br /> UI Design Screenshot
+                    </h2>
+                    <div className="w-[40px] h-[3px] bg-blue-600 mx-auto mt-6 rounded-full mb-16"></div>
+
+                    {/* Dashboard Showcase Container */}
+                    <div className="relative group max-w-[1000px] mx-auto">
+                        {/* Background Glow Effect */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-[30px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                        {/* Main Screenshot with Shadow/Border */}
+                        <div className="relative bg-white rounded-2xl border border-gray-200 shadow-[0_20px_50px_rgba(8,106,216,0.15)] overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+                            {/* Browser Top Bar Decor */}
+                            <div className="bg-gray-50 border-b border-gray-100 px-4 py-3 flex items-center gap-2">
+                                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                                <div className="ml-4 h-4 w-48 bg-gray-200 rounded-full"></div>
+                            </div>
+
+                            {/* Replace the URL below with your actual dashboard image */}
+                            <img
+                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+                                alt="Main Dashboard UI"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
+
+                        {/* Floating Secondary Screenshot (Bottom Left) - Visible on MD+ */}
+                        <div className="hidden md:block absolute -bottom-10 -left-12 w-[280px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden animate-bounce-slow">
+                            <img
+                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400"
+                                alt="Analytics View"
+                                className="w-full h-auto"
+                            />
+                        </div>
+
+                        {/* Floating Secondary Screenshot (Top Right) - Visible on MD+ */}
+                        <div className="hidden md:block absolute -top-8 -right-12 w-[280px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                            <img
+                                src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=400"
+                                alt="Data Visualization"
+                                className="w-full h-auto"
+                            />
+                        </div>
+                    </div>
+                </div>
             </section>
+
 
             {/* Expert Team Section */}
             <section className="py-24 bg-white">

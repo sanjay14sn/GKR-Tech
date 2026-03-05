@@ -202,6 +202,57 @@ const About: React.FC = () => {
                 </div>
             </section>
 
+            {/* --- Testimonial Section --- */}
+            <section className="py-24 bg-[#f8faff]">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16 px-4">
+                        <h4 className="text-blue-600 font-bold uppercase tracking-wider mb-2">TESTIMONIALS</h4>
+                        <h2 className="text-3xl md:text-[42px] font-bold text-[#002d5b] mb-4">Trusted by enterprise leaders</h2>
+                        <div className="w-12 h-1 bg-blue-600 mx-auto rounded"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
+                        {/* Testimonial 1 */}
+                        <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-50 relative">
+                            <div className="text-blue-600 mb-6">
+                                <svg className="w-10 h-10 opacity-20" fill="currentColor" viewBox="0 0 32 32">
+                                    <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H7c0-1.7 1.3-3 3-3V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-7c0-1.7 1.3-3 3-3V8z" />
+                                </svg>
+                            </div>
+                            <p className="text-gray-600 italic mb-8 leading-relaxed text-lg">
+                                "They didn't just fix our firewall; they transformed our entire security posture. The fact that they handle both strategy and daily operations means we finally have a partner who understands the full picture."
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">CTO</div>
+                                <div>
+                                    <h5 className="font-bold text-[#002d5b]">Regional Bank</h5>
+                                    <span className="text-sm text-gray-400">Chief Technology Officer</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Testimonial 2 */}
+                        <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-50 relative">
+                            <div className="text-blue-600 mb-6">
+                                <svg className="w-10 h-10 opacity-20" fill="currentColor" viewBox="0 0 32 32">
+                                    <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H7c0-1.7 1.3-3 3-3V8zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-7c0-1.7 1.3-3 3-3V8z" />
+                                </svg>
+                            </div>
+                            <p className="text-gray-600 italic mb-8 leading-relaxed text-lg">
+                                "When we needed to migrate government workloads to GCC cloud, they were the only partner with both the technical depth and regulatory knowledge to get it done."
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">IT</div>
+                                <div>
+                                    <h5 className="font-bold text-[#002d5b]">Government Entity</h5>
+                                    <span className="text-sm text-gray-400">IT Director</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     );
 };

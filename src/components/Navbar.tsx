@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
     // Paths where the two-layer navbar (top bar) should be hidden
     const hideTopBarPaths = ['/about', '/why-choose-us', '/services', '/contact', '/blog', '/team', '/projects'];
     const shouldHideTopBar = hideTopBarPaths.includes(location.pathname);
+    const isContactPage = location.pathname === '/contact';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,10 +49,8 @@ const Navbar: React.FC = () => {
         { name: 'Contact', path: '/contact' },
     ];
 
-    const isContactPage = location.pathname === '/contact';
-
     return (
-        <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 flex flex-col ${isScrolled ? 'bg-white shadow-md' : isContactPage ? 'bg-white/70 backdrop-blur-md' : 'bg-transparent'}`}>
+        <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 flex flex-col ${isScrolled ? 'bg-white shadow-md text-secondary' : 'bg-white text-secondary'}`}>
 
             {/* --- LAYER 1: TOP BAR --- */}
             <div className={`w-full bg-[#2c5eb6] text-white text-[13px] border-b border-white/10 hidden md:block overflow-hidden transition-all duration-300 ${isScrolled || shouldHideTopBar ? 'max-h-0 opacity-0 border-none' : 'max-h-[45px] opacity-100'}`}>
@@ -64,7 +63,7 @@ const Navbar: React.FC = () => {
                         <span className="opacity-50">|</span>
                         <div className="flex items-center gap-2">
                             <Mail size={14} fill="currentColor" className="opacity-90" />
-                            <span>Info@gmail.com</span>
+                            <span>info@gkrtechsolutions.com</span>
                         </div>
                     </div>
                     <div className="flex items-center gap-6">

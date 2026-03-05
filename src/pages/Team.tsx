@@ -9,7 +9,7 @@ const Team: React.FC = () => {
     ];
 
     return (
-        <div className="pt-[100px]">
+        <div className="pt-[80px]">
             <section className="py-20 bg-light-bg text-center">
                 <div className="max-w-[1200px] mx-auto px-6">
                     <span className="badge">Expert Team</span>
