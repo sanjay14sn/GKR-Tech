@@ -24,7 +24,32 @@ export interface BlogPost {
     tags: string[];
 }
 
+export interface Project {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    challenges: string;
+    solutions: string;
+    features: string[];
+    client: string;
+    date: string;
+    duration: string;
+    location: string;
+    img: string;
+}
+
 export const services: Service[] = [
+    {
+        id: "itops",
+        title: "ITOps – Managed Services",
+        icon: <Settings size={40} strokeWidth={1.5} />,
+        desc: "AI-led Managed Infrastructure Services that transform reactive IT into proactive, automated operations.",
+        features: ["AI-Led Ops", "Service Catalog", "Medallion Model", "24/7 Managed Services"],
+        details: "Our ITOps framework leverages AI to reduce costs, eliminate silos, and provide unified visibility across your entire infrastructure. From automated service desks to predictive disaster recovery, we deliver a resilient and scalable IT environment.",
+        benefits: ["Unified Delivery Model", "GenAI-Powered Service Desk", "Centralized Visibility", "Automated Compliance"],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200"
+    },
     {
         id: "consulting-advisory",
         title: "Consulting & Advisory",
@@ -150,4 +175,63 @@ Future trends explored:
         img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
         tags: ['IoT', 'Edge Computing', 'Smart Cities', '5G']
     },
+];
+
+export const projects: Project[] = [
+    {
+        id: 1,
+        title: 'Cyber Security Dashboard',
+        category: 'Software',
+        description: 'We developed a comprehensive security dashboard for a major fintech company. The goal was to provide real-time monitoring of all digital assets and automated threat detection, enabling the security team to respond to incidents faster than ever before.',
+        challenges: 'The client needed a scalable solution that could handle millions of requests per second while maintaining low latency and high accuracy in threat detection systems.',
+        solutions: 'We implemented a microservices architecture using Node.js and Kubernetes, integrated with cutting-edge AI for anomaly detection and real-time alerts.',
+        features: ['Real-time incident tracking', 'AI-powered threat detection', 'Automated security reports', 'Interactive visualization', 'Multi-tenant support', 'Role-based access control'],
+        client: 'TechNova Solutions',
+        date: 'October 2025',
+        duration: '6 Months',
+        location: 'San Francisco, CA',
+        img: '/src/assets/project-1.png'
+    },
+    {
+        id: 2,
+        title: 'Cloud Migration Project',
+        category: 'Infrastructure',
+        description: 'Seamlessly migrating legacy on-premise infrastructure to a high-performance cloud environment for a global retail chain.',
+        challenges: 'Minimizing downtime during migration and ensuring data integrity across large-scale databases.',
+        solutions: 'Utilized AWS Migration Hub and customized scripts for automated data transfer and validation.',
+        features: ['Zero-downtime migration', 'Automated data validation', 'Cloud-native architecture', 'Cost optimization', 'Scalable infrastructure', '24/7 monitoring'],
+        client: 'Global Retail Corp',
+        date: 'December 2025',
+        duration: '4 Months',
+        location: 'London, UK',
+        img: '/src/assets/project-1.png'
+    },
+    {
+        id: 3,
+        title: 'E-commerce App Dev',
+        category: 'Mobile App',
+        description: 'Developing a next-generation mobile shopping experience with integrated AI recommendations.',
+        challenges: 'Creating a smooth user interface that performs well across a wide range of mobile devices.',
+        solutions: 'Built with React Native for cross-platform efficiency and integrated with a high-performance GraphQL API.',
+        features: ['Cross-platform support', 'AI product recommendations', 'One-click checkout', 'AR product preview', 'Real-time inventory tracking', 'Push notifications'],
+        client: 'StyleHub',
+        date: 'January 2026',
+        duration: '8 Months',
+        location: 'New York, NY',
+        img: '/src/assets/project-1.png'
+    },
+    {
+        id: 4,
+        title: 'AI Business Analytics',
+        category: 'Data Science',
+        description: 'Empowering business decisions with predictive analytics and deep data insights.',
+        challenges: 'Processing massive datasets from multiple sources into a single unified dashboard.',
+        solutions: 'Leveraged Python, TensorFlow, and BigQuery to build a robust data processing pipeline and interactive visualizations.',
+        features: ['Predictive sales forecasting', 'Customer churn analysis', 'Real-time data streaming', 'Custom report builder', 'Anomalous trend detection', 'Automated data cleaning'],
+        client: 'InsightFirst',
+        date: 'February 2026',
+        duration: '5 Months',
+        location: 'Berlin, Germany',
+        img: '/src/assets/project-1.png'
+    }
 ];

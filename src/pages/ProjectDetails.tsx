@@ -1,10 +1,23 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import projectImg from '../assets/project-1.png';
+import { useParams, Link } from 'react-router-dom';
+import { projects } from '../data/content';
+import { ArrowLeft } from 'lucide-react';
 
 const ProjectDetails: React.FC = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
+    const project = projects.find(p => p.id === Number(id));
+
+    if (!project) {
+        return (
+            <div className="pt-[120px] pb-24 text-center">
+                <h2 className="text-3xl font-bold mb-6 text-secondary">Project Not Found</h2>
+                <Link to="/projects" className="btn btn-primary inline-flex items-center gap-2">
+                    <ArrowLeft size={20} />
+                    Back to Projects
+                </Link>
+            </div>
+        );
+    }
 
     return (
         <div className="pt-[80px] min-h-screen bg-gray-50/30">
@@ -12,13 +25,16 @@ const ProjectDetails: React.FC = () => {
             <section className="py-24 bg-light-bg relative overflow-hidden border-b border-gray-100">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -mr-64 -mt-64" />
                 <div className="container relative z-10">
-
+                    <Link to="/projects" className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all">
+                        <ArrowLeft size={20} />
+                        BACK TO PROJECTS
+                    </Link>
                     <span className="badge">Success Story</span>
                     <h1 className="text-4xl md:text-[64px] font-extrabold mt-6 mb-4 text-secondary leading-tight tracking-tight">
-                        Cyber Security Dashboard
+                        {project.title}
                     </h1>
                     <p className="text-gray-500 text-xl max-w-2xl font-medium">
-                        Streamlining security operations with an intuitive, powerful dashboard for real-time threat monitoring and response.
+                        {project.category} solutions tailored for exceptional results.
                     </p>
                 </div>
             </section>
@@ -28,8 +44,8 @@ const ProjectDetails: React.FC = () => {
                 <div className="container">
                     <div className="animate-up">
                         <img
-                            src={projectImg}
-                            alt="Project Detail"
+                            src={project.img}
+                            alt={project.title}
                             className="w-full rounded-[20px] md:rounded-[40px] shadow-2xl mb-12 md:mb-24 object-cover aspect-video hover:shadow-[0_20px_50px_rgba(8,106,216,0.15)] transition-shadow duration-500"
                         />
                     </div>
@@ -42,9 +58,7 @@ const ProjectDetails: React.FC = () => {
                                     Project Overview
                                 </h2>
                                 <p className="text-gray-600 mb-8 text-xl leading-[1.8] font-medium opacity-90">
-                                    We developed a comprehensive security dashboard for a major fintech company.
-                                    The goal was to provide real-time monitoring of all digital assets and
-                                    automated threat detection, enabling the security team to respond to incidents faster than ever before.
+                                    {project.description}
                                 </p>
                             </div>
 
@@ -52,15 +66,13 @@ const ProjectDetails: React.FC = () => {
                                 <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 hover:border-primary/20 transition-colors">
                                     <h3 className="text-2xl font-bold mb-4 text-secondary">The Challenge</h3>
                                     <p className="text-gray-600 text-lg leading-relaxed">
-                                        The client needed a scalable solution that could handle millions of requests
-                                        per second while maintaining low latency and high accuracy in threat detection systems.
+                                        {project.challenges}
                                     </p>
                                 </div>
                                 <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 hover:border-primary/20 transition-colors">
                                     <h3 className="text-2xl font-bold mb-4 text-secondary">Our Solution</h3>
                                     <p className="text-gray-600 text-lg leading-relaxed">
-                                        We implemented a microservices architecture using Node.js and Kubernetes,
-                                        integrated with cutting-edge AI for anomaly detection and real-time alerts.
+                                        {project.solutions}
                                     </p>
                                 </div>
                             </div>
@@ -68,7 +80,7 @@ const ProjectDetails: React.FC = () => {
                             <div className="pt-8">
                                 <h3 className="text-2xl font-bold mb-6 text-secondary">Key Features</h3>
                                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {['Real-time incident tracking', 'AI-powered threat detection', 'Automated security reports', 'Interactive visualization', 'Multi-tenant support', 'Role-based access control'].map((feature, index) => (
+                                    {project.features.map((feature, index) => (
                                         <li key={index} className="flex items-center gap-3 text-gray-600 font-medium pb-2 border-b border-gray-50">
                                             <span className="w-2 h-2 rounded-full bg-primary" />
                                             {feature}
@@ -84,11 +96,11 @@ const ProjectDetails: React.FC = () => {
                                     <h4 className="text-2xl font-bold mb-8 text-secondary pb-6 border-b border-gray-100">Project Details</h4>
                                     <div className="space-y-6">
                                         {[
-                                            { label: 'Client', value: 'TechNova Solutions' },
-                                            { label: 'Category', value: 'Cyber Security' },
-                                            { label: 'Date', value: 'October 2025' },
-                                            { label: 'Duration', value: '6 Months' },
-                                            { label: 'Location', value: 'San Francisco, CA' }
+                                            { label: 'Client', value: project.client },
+                                            { label: 'Category', value: project.category },
+                                            { label: 'Date', value: project.date },
+                                            { label: 'Duration', value: project.duration },
+                                            { label: 'Location', value: project.location }
                                         ].map((item, index) => (
                                             <div key={index} className="flex flex-col gap-1">
                                                 <span className="text-sm font-bold text-primary uppercase tracking-wider">{item.label}</span>
@@ -96,7 +108,6 @@ const ProjectDetails: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-
                                 </div>
 
                                 <div className="bg-secondary p-10 rounded-[32px] text-white">

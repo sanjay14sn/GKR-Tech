@@ -1,13 +1,8 @@
 import React from 'react';
-import projectImg from '../assets/project-1.png';
+import { Link } from 'react-router-dom';
+import { projects } from '../data/content';
 
 const Projects: React.FC = () => {
-    const projects = [
-        { id: 1, title: 'Cyber Security Dashboard', category: 'Software', img: projectImg },
-        { id: 2, title: 'Cloud Migration Project', category: 'Infrastructure', img: projectImg },
-        { id: 3, title: 'E-commerce App Dev', category: 'Mobile App', img: projectImg },
-        { id: 4, title: 'AI Business Analytics', category: 'Data Science', img: projectImg },
-    ];
 
     return (
         <div className="pt-[80px]">

@@ -101,9 +101,9 @@ const ServiceDetails: React.FC = () => {
                             </p>
 
                             <div className="space-y-4 relative z-10 mb-10">
-                                <a href="tel:+97100000000" className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white hover:text-slate-900 transition-all">
+                                <a href="tel:+919840995018" className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white hover:text-slate-900 transition-all">
                                     <Phone className="text-blue-500" size={20} />
-                                    <span className="font-bold">+971 00 000 0000</span>
+                                    <span className="font-bold">+91 98409 95018</span>
                                 </a>
                                 <a href="mailto:info@gkrtechsolutions.com" className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white hover:text-slate-900 transition-all">
                                     <Mail className="text-blue-500" size={20} />

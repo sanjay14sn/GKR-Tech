@@ -13,6 +13,7 @@ import BlogDetails from './pages/BlogDetails';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
 import WhyChooseUs from './pages/WhyChooseUs';
+import ITOps from './pages/ITOps';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/why-choose-us" element={<WhyChooseUs />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/itops" element={<ITOps />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetails />} />

@@ -57,7 +57,7 @@ const Services: React.FC = () => {
                         <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.slice(0, 3).map((service, idx) => (
+                        {services.map((service, idx) => (
                             <div key={idx} className="group p-10 border border-gray-200 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 bg-white flex flex-col items-center">
                                 <div className="mb-8 p-6 bg-blue-50 rounded-2xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
                                     {service.icon}

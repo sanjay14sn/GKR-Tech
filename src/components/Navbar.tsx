@@ -36,7 +36,17 @@ const Navbar: React.FC = () => {
                 { name: 'Why Choose Us', path: '/why-choose-us' },
             ]
         },
-        { name: 'Services', path: '/services' },
+        {
+            name: 'Services',
+            path: '/services',
+            items: [
+                { name: 'All Services', path: '/services' },
+                { name: 'ITOps – Managed Services', path: '/services/itops' },
+                { name: 'Consulting & Advisory', path: '/services/consulting-advisory' },
+                { name: 'Build & Implementation', path: '/services/build-implementation' },
+                { name: 'Operations & BAU', path: '/services/operations-bau' },
+            ]
+        },
         { name: 'Projects', path: '/projects' },
         {
             name: 'Pages',

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+    Activity, Clock, Calendar, User, ArrowRight,
+    Headphones, Monitor, Database, Cloud, Layers,
+    Share2, Shield, HeartPulse
+} from 'lucide-react';
 import heroImg from '../assets/hero.png';
+import { services, blogPosts } from '../data/content';
 
 const faqs = [
     {
@@ -21,6 +27,55 @@ const faqs = [
     }
 ]
 
+const serviceCatalogItems = [
+    {
+        title: "Service Desk",
+        icon: <Headphones size={32} />,
+        desc: "Support that ensures client staff stay productive through issue resolution, access management, and reliable IT operations."
+    },
+    {
+        title: "End User Compute",
+        icon: <Monitor size={32} />,
+        desc: "Consistent, secure user experiences across all employee devices and locations."
+    },
+    {
+        title: "Database",
+        icon: <Database size={32} />,
+        desc: "Manage and optimize to ensure interoperability, performance, availability, and data integrity."
+    },
+    {
+        title: "Cloud",
+        icon: <Cloud size={32} />,
+        desc: "Migration, modernization, and management across public, private, and hybrid environments."
+    },
+    {
+        title: "Infrastructure",
+        icon: <Layers size={32} />,
+        desc: "Design and management to ensure security, performance, scalability, and uptime."
+    },
+    {
+        title: "Network & NOC",
+        icon: <Share2 size={32} />,
+        desc: "Proactive monitoring and support to keep systems always connected."
+    },
+    {
+        title: "Cybersecurity",
+        icon: <Shield size={32} />,
+        desc: "Layered to prevent attacks, minimize risk, and maintain business trust."
+    },
+    {
+        title: "Products & Apps Support",
+        icon: <HeartPulse size={32} />,
+        desc: "Ensuring apps runs fast, secure, and reliable—app to infrastructure."
+    }
+];
+
+const technologyLogos = [
+    "Wintel", "Palo Alto", "VMware", "AWS", "Google Cloud", "SQL Server", "Teradata",
+    "Fortinet", "IBM DB2", "NetApp", "Linux", "Oracle Database", "Nutanix",
+    "Oracle Cloud", "Azure", "PostgreSQL", "Check Point", "Citrix", "Dell EMC", "Cato Networks"
+];
+
 const Home: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -31,8 +86,7 @@ const Home: React.FC = () => {
     return (
         <div className="pt-[100px] font-sans">
             {/* Hero Section */}
-            {/* Hero Section */}
-            <section className="py-[50px] md:py-[100px] bg-white overflow-hidden">
+            <section className="min-h-[calc(100vh-100px)] flex items-center bg-white overflow-hidden py-12 md:py-0">
                 <div className="max-w-[1170px] mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
                     {/* Left Content */}
@@ -62,7 +116,7 @@ const Home: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* FIXED: Right Image - Bleeds to the edge and scaled up */}
+                    {/* Right Image */}
                     <div className="flex-1 relative w-full lg:w-[50vw] lg:min-w-[600px] lg:-mr-[15vw] mt-12 md:mt-0">
                         <img
                             src={heroImg}
@@ -73,33 +127,29 @@ const Home: React.FC = () => {
 
                 </div>
             </section>
+
             {/* What We Do Section */}
             <section className="py-24 bg-[#f7faff]">
                 <div className="max-w-[1170px] mx-auto px-6">
                     <div className="text-center mb-16">
                         <span className="text-blue-600 font-bold tracking-[3px] text-sm uppercase block mb-4">WHAT WE DO</span>
-                        <h2 className="text-[32px] md:text-[42px] font-bold text-[#0e2a47] mb-6">We analysis & monitoring <br />your application</h2>
+                        <h2 className="text-[32px] md:text-[42px] font-bold text-[#0e2a47] mb-6">Expert Infrastructure & <br />Security Solutions</h2>
                         <div className="w-[40px] h-[3px] bg-blue-600 mx-auto rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
-                        {[
-                            { title: "Manage customers", img: "https://wpriverthemes.com/tandaelem/wp-content/uploads/2023/01/1-2.png" },
-                            { title: "Live Messaging", img: "https://wpriverthemes.com/tandaelem/wp-content/uploads/2023/01/3-2.png" },
-                            { title: "Ticket Manage", img: "https://wpriverthemes.com/tandaelem/wp-content/uploads/2023/01/2-3.png" },
-                            { title: "Email Workflow", img: "https://wpriverthemes.com/tandaelem/wp-content/uploads/2023/01/4-1.png" }
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white p-10 rounded-xl flex flex-col sm:flex-row gap-[30px] shadow-[0_10px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.07)] transition-all duration-300">
-                                <div className="shrink-0 w-[60px]">
-                                    <img src={item.img} alt={item.title} className="w-full" />
+                        {services.filter(s => ['itops', 'consulting-advisory', 'build-implementation', 'operations-bau'].includes(s.id)).map((service, idx) => (
+                            <Link key={idx} to={`/services/${service.id}`} className="bg-white p-10 rounded-xl flex flex-col sm:flex-row gap-[30px] shadow-[0_10px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.07)] transition-all duration-300 group">
+                                <div className="shrink-0 w-[60px] h-[60px] flex items-center justify-center text-blue-600 bg-blue-50 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
+                                    {service.icon}
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-[#0e2a47] mb-4">{item.title}</h3>
-                                    <p className="text-[15px] leading-[26px] text-gray-500">
-                                        Prevailed mr tolerably discourse assurance estimable applauded to so. Him everything melancholy uncommonly but solicitude.
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-[#0e2a47] mb-4 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{service.title}</h3>
+                                    <p className="text-[15px] leading-[26px] text-gray-500 line-clamp-2">
+                                        {service.desc}
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -248,8 +298,8 @@ const Home: React.FC = () => {
 
                 </div>
             </section>
+
             {/* Stats Section with Background Image */}
-            {/* Stats Section with Parallax Background */}
             <section className="py-12 bg-white">
                 <div className="max-w-[1170px] mx-auto px-6">
                     <div
@@ -258,149 +308,92 @@ const Home: React.FC = () => {
                             backgroundImage: `url('https://wpriverthemes.com/tandaelem/wp-content/uploads/2023/01/16.jpg')`
                         }}
                     >
-                        {/* Blue Overlay - Set to 85% opacity to ensure pure white text is legible */}
+                        {/* Blue Overlay */}
                         <div className="absolute inset-0 bg-[#2d62c2]/85"></div>
 
-                        {/* Stats Content */}
-                        <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 text-white">
-                            {[
-                                { num: "687", label: "Happy Clients" },
-                                { num: "2348", label: "Finished Projects" },
-                                { num: "450", label: "Skilled Experts" },
-                                { num: "1200", label: "Media Posts" }
-                            ].map((stat, i) => (
-                                <div key={i} className="text-center">
-                                    <h3 className="text-[36px] md:text-[48px] font-bold mb-1 leading-none text-white">
-                                        {stat.num}+
-                                    </h3>
-                                    <p className="text-[13px] md:text-[15px] font-semibold uppercase tracking-wider text-white opacity-100">
-                                        {stat.label}
+                        {/* Service Catalog Header */}
+                        <div className="relative z-10 text-center mb-16">
+                            <h2 className="text-white text-[32px] md:text-[42px] font-bold">Infrastructure Ops – Service Catalog</h2>
+                            <div className="w-[40px] h-[3px] bg-white mx-auto mt-6 rounded-full"></div>
+                        </div>
+
+                        {/* Service Catalog Grid */}
+                        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 mb-20 px-4">
+                            {serviceCatalogItems.map((item, idx) => (
+                                <div key={idx} className="flex flex-col items-center group">
+                                    {/* Icon */}
+                                    <div className="text-white mb-8 p-6 bg-white/5 rounded-full border border-white/10 group-hover:bg-white/20 transition-all duration-300">
+                                        {item.icon}
+                                    </div>
+                                    {/* Title Pill */}
+                                    <div className="bg-[#0e2a47] text-white px-10 py-3 rounded-full font-bold text-sm tracking-widest mb-8 border border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.3)] min-w-[200px] text-center uppercase group-hover:scale-105 transition-transform">
+                                        {item.title}
+                                    </div>
+                                    {/* Description */}
+                                    <p className="text-white/80 text-sm leading-relaxed text-center px-4 max-w-[280px]">
+                                        {item.desc}
                                     </p>
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </div>
-            </section>
-            {/* Dashboard Screenshot Header */}
-            <section className="py-20 bg-[#f8fafc]">
-                <div className="max-w-[1200px] mx-auto px-6 text-center">
-                    <span className="text-blue-600 font-bold tracking-[2px] text-xs uppercase block mb-4">DASHBOARD SCREENSHOT</span>
-                    <h2 className="text-[32px] md:text-[36px] font-bold text-[#0e2a47]">
-                        Let's See Awesome Software <br /> UI Design Screenshot
-                    </h2>
-                    <div className="w-[40px] h-[3px] bg-blue-600 mx-auto mt-6 rounded-full mb-16"></div>
 
-                    {/* Dashboard Showcase Container */}
-                    <div className="relative group max-w-[1000px] mx-auto">
-                        {/* Background Glow Effect */}
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-[30px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                        {/* Main Screenshot with Shadow/Border */}
-                        <div className="relative bg-white rounded-2xl border border-gray-200 shadow-[0_20px_50px_rgba(8,106,216,0.15)] overflow-hidden transition-transform duration-500 hover:-translate-y-2">
-                            {/* Browser Top Bar Decor */}
-                            <div className="bg-gray-50 border-b border-gray-100 px-4 py-3 flex items-center gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                                <div className="ml-4 h-4 w-48 bg-gray-200 rounded-full"></div>
+                        {/* Technology Logos */}
+                        <div className="relative z-10 border-t border-white/10 pt-16 mt-20 px-4">
+                            <div className="flex flex-wrap justify-center items-center gap-x-10 md:gap-x-16 gap-y-10 opacity-70 filter brightness-0 invert transition-opacity hover:opacity-100">
+                                {technologyLogos.map((logo, i) => (
+                                    <span key={i} className="text-white font-black text-xl md:text-2xl tracking-tighter hover:scale-110 transition-transform cursor-default whitespace-nowrap">
+                                        {logo}
+                                    </span>
+                                ))}
                             </div>
-
-                            {/* Replace the URL below with your actual dashboard image */}
-                            <img
-                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-                                alt="Main Dashboard UI"
-                                className="w-full h-auto object-cover"
-                            />
-                        </div>
-
-                        {/* Floating Secondary Screenshot (Bottom Left) - Visible on MD+ */}
-                        <div className="hidden md:block absolute -bottom-10 -left-12 w-[280px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden animate-bounce-slow">
-                            <img
-                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400"
-                                alt="Analytics View"
-                                className="w-full h-auto"
-                            />
-                        </div>
-
-                        {/* Floating Secondary Screenshot (Top Right) - Visible on MD+ */}
-                        <div className="hidden md:block absolute -top-8 -right-12 w-[280px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
-                            <img
-                                src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=400"
-                                alt="Data Visualization"
-                                className="w-full h-auto"
-                            />
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* Service Excellence - Medallion Preview */}
+            <section className="py-24 bg-slate-50">
+                <div className="max-w-[1170px] mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <span className="text-blue-600 font-bold tracking-[3px] text-sm uppercase block mb-4">SERVICE EXCELLENCE</span>
+                        <h2 className="text-[32px] md:text-[42px] font-bold text-[#0e2a47] mb-6">Our Medallion Service Models</h2>
+                        <p className="text-gray-500 max-w-2xl mx-auto mb-8">
+                            Flexible, AI-led managed service tiers designed to scale with your business complexity and security requirements.
+                        </p>
+                        <div className="w-[40px] h-[3px] bg-blue-600 mx-auto rounded-full"></div>
+                    </div>
 
-            {/* Expert Team Section */}
-            <section className="py-24 bg-white">
-                <div className="max-w-[1170px] mx-auto px-6 text-center">
-                    <span className="text-blue-600 font-bold tracking-[3px] text-xs uppercase block mb-4">
-                        EXPERT TEAM
-                    </span>
-
-                    <h2 className="text-[32px] md:text-[40px] font-bold text-[#0e2a47] mb-12">
-                        Meet Our Leadership
-                    </h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                         {[
-                            {
-                                name: "Sporia Deko",
-                                role: "Marketing",
-                                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-                            },
-                            {
-                                name: "Adhom Jonam",
-                                role: "Project Manager",
-                                img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-                            },
-                            {
-                                name: "Turka Pruda",
-                                role: "Marketing",
-                                img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-                            },
-                        ].map((member, idx) => (
-                            <div key={idx} className="group relative">
-                                <div className="overflow-hidden rounded-2xl mb-6">
-                                    <img
-                                        src={member.img}
-                                        alt={member.name}
-                                        className="w-full transition-all duration-500 transform group-hover:scale-110"
-                                    />
+                            { name: "Bronze", color: "from-orange-100 to-orange-200", iconPath: "m12 15 2 2 4-4", text: "Entry Level" },
+                            { name: "Silver", color: "from-slate-100 to-slate-200", iconPath: "m12 15 2 2 4-4", text: "Standard" },
+                            { name: "Gold", color: "from-yellow-100 to-yellow-200", iconPath: "m12 15 2 2 4-4", text: "Advanced" },
+                            { name: "Platinum", color: "from-blue-100 to-blue-200", iconPath: "m12 15 2 2 4-4", text: "Elite" }
+                        ].map((m, idx) => (
+                            <div key={idx} className={`p-8 rounded-2xl bg-gradient-to-br ${m.color} border border-white/50 shadow-sm hover:shadow-md transition-all text-center group`}>
+                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                                    <span className="font-bold text-gray-800">{m.name[0]}</span>
                                 </div>
-
-                                <h4 className="text-xl font-bold text-[#0e2a47] mb-1">
-                                    {member.name}
-                                </h4>
-
-                                <p className="text-blue-600 text-sm font-semibold">
-                                    {member.role}
-                                </p>
-
-                                <div className="absolute bottom-[85px] right-6 w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-lg cursor-pointer hover:bg-blue-600 hover:text-white transition-colors">
-                                    <span className="text-xl font-bold">+</span>
-                                </div>
+                                <h4 className="text-xl font-bold text-gray-800 mb-2">{m.name}</h4>
+                                <p className="text-sm text-gray-600 mb-6">{m.text}</p>
+                                <Link to="/services/itops" className="text-blue-600 text-xs font-bold uppercase tracking-wider hover:underline">View Scope</Link>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
+
             {/* Testimonials Section */}
             <section className="py-24 bg-[#f7faff]">
                 <div className="max-w-[1170px] mx-auto px-6 text-center">
                     <span className="text-blue-600 font-bold tracking-[3px] text-xs uppercase block mb-4">TESTIMONIALS</span>
-                    <h2 className="text-[32px] md:text-[40px] font-bold text-[#0e2a47] mb-16">What People Say</h2>
+                    <h2 className="text-[32px] md:text-[40px] font-bold text-[#0e2a47] mb-16">What Our Clients Say</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {[
-                            { name: "Ocean Babs", role: "Head of IT", img: "https://i.pravatar.cc/150?u=1" },
-                            { name: "Hundi Monas", role: "Marketing", img: "https://i.pravatar.cc/150?u=2" }
+                            { name: "Sanjay Kumar", role: "CTO, Regional Bank", img: "https://i.pravatar.cc/150?u=1" },
+                            { name: "Laila Ibrahim", role: "IT Operations Manager", img: "https://i.pravatar.cc/150?u=2" }
                         ].map((testi, idx) => (
                             <div key={idx} className="bg-white p-10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-8 text-left relative overflow-hidden">
                                 <div className="relative shrink-0">
@@ -411,7 +404,7 @@ const Home: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-gray-500 italic mb-6 leading-relaxed">
-                                        "Excited main sixteen parties. direction has led immediate. Law gate her well bed life feet seen rent per instructions!"
+                                        "GKR Tech transformed our reactive IT into an AI-led powerhouse. Their Medallion model gave us the flexibility to scale security exactly where we needed it."
                                     </p>
                                     <div className="flex text-yellow-400 mb-2">★★★★★</div>
                                     <h4 className="font-bold text-[#0e2a47]">{testi.name} <span className="font-normal text-gray-400 mx-2">/</span> <span className="text-sm font-medium text-gray-500">{testi.role}</span></h4>
@@ -419,78 +412,51 @@ const Home: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                    {/* Carousel Dots */}
-                    <div className="flex justify-center gap-2 mt-12">
-                        <div className="w-3 h-3 rounded-full bg-blue-600"></div>
-                        <div className="w-3 h-3 rounded-full border border-gray-300"></div>
-                    </div>
                 </div>
             </section>
 
             {/* Popular News / Blog Section */}
             <section className="py-24 bg-white">
                 <div className="max-w-[1170px] mx-auto px-6">
-                    {/* Section Header */}
                     <div className="text-center mb-16">
-                        <span className="text-blue-600 font-bold tracking-[3px] text-xs uppercase block mb-4">POPULAR NEWS</span>
-                        <h2 className="text-[32px] md:text-[40px] font-bold text-[#0e2a47] mb-6">Latest From our blog</h2>
+                        <span className="text-blue-600 font-bold tracking-[3px] text-xs uppercase block mb-4">LATEST INSIGHTS</span>
+                        <h2 className="text-[32px] md:text-[42px] font-bold text-[#0e2a47] mb-6">Infrastructure & Security Blog</h2>
                         <div className="w-[40px] h-[3px] bg-blue-600 mx-auto rounded-full"></div>
                     </div>
 
-                    {/* Blog Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                title: "Strategies for digital dominance",
-                                img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
-                                desc: "Explore the latest trends in digital transformation and how they impact modern business workflows."
-                            },
-                            {
-                                title: "The evolution of user interfaces",
-                                img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800",
-                                desc: "Why clean design systems are becoming the standard for successful SaaS platforms in 2024."
-                            },
-                            {
-                                title: "Remote team collaboration",
-                                img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
-                                desc: "Tools and techniques to keep your distributed team synchronized and productive."
-                            }
-                        ].map((post, idx) => (
-                            <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                                {/* Image Container */}
-                                <div className="overflow-hidden">
+                        {blogPosts.slice(0, 3).map((post, idx) => (
+                            <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-xl transition-shadow duration-300 group flex flex-col">
+                                <Link to={`/blog`} className="overflow-hidden h-56 block">
                                     <img
                                         src={post.img}
                                         alt={post.title}
-                                        className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
-                                </div>
+                                </Link>
 
-                                <div className="p-8">
-                                    {/* Meta Data with Icons */}
+                                <div className="p-8 flex-1 flex flex-col">
                                     <div className="flex items-center gap-4 text-xs text-gray-400 mb-4 font-semibold">
-                                        <span className="flex items-center gap-1.5">
-                                            <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                            Jan 20, 2024
+                                        <span className="flex items-center gap-1.5 uppercase tracking-wider">
+                                            <Calendar size={14} className="text-blue-600" />
+                                            {post.date}
                                         </span>
-                                        <span className="flex items-center gap-1.5">
-                                            <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                                            Admin
+                                        <span className="flex items-center gap-1.5 uppercase tracking-wider">
+                                            <User size={14} className="text-blue-600" />
+                                            {post.author}
                                         </span>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-[#0e2a47] mb-4 hover:text-blue-600 cursor-pointer transition-colors leading-tight">
-                                        {post.title}
+                                    <h3 className="text-xl font-bold text-[#0e2a47] mb-4 hover:text-blue-600 cursor-pointer transition-colors leading-tight line-clamp-2">
+                                        <Link to={`/blog`}>{post.title}</Link>
                                     </h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                                        {post.desc}
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                                        {post.description}
                                     </p>
-
-                                    {/* Button with Arrow Icon */}
-                                    <button className="text-xs font-bold tracking-widest text-[#0e2a47] uppercase hover:text-blue-600 transition-colors flex items-center gap-2">
+                                    <Link to={`/blog`} className="mt-auto text-xs font-bold tracking-widest text-[#0e2a47] uppercase hover:text-blue-600 transition-colors flex items-center gap-2 group-hover:gap-3">
                                         READ MORE
-                                        <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                    </button>
+                                        <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                                    </Link>
                                 </div>
                             </div>
                         ))}
