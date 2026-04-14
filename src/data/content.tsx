@@ -58,7 +58,7 @@ export const services: Service[] = [
         features: ["vCISO", "Compliance", "Risk Assessment"],
         details: "In an era of increasing digital complexity, having a robust security strategy is not just an option—it's a necessity. GKR Technology Solutions offers comprehensive consulting and advisory services tailored to the unique regulatory landscape of the GCC region. Our experts work as your strategic partners, helping you navigate compliance requirements while building a resilient security posture that supports your business goals.",
         benefits: ["Reduced Regulatory Risk", "Strategic Security Roadmap", "Regional Compliance Expertise", "Independent Risk Assessment"],
-        image: "/src/assets/consulting-work.png"
+        image: "/assets/consulting-work.png"
     },
     {
         id: "build-implementation",
@@ -68,7 +68,7 @@ export const services: Service[] = [
         features: ["Zero Trust", "IAM/PAM", "Firewall Hardening"],
         details: "Moving from strategy to execution requires deep technical expertise and a focus on long-term sustainability. We specialize in building secure-by-design infrastructures that scale with your business. Whether it's deploying Zero Trust architectures, implementing Identity and Access Management, or ensuring your datacenter's physical and logical security, our implementation team delivers excellence without compromise.",
         benefits: ["Secure-by-Design Infrastructure", "Scalable Technology Stack", "Optimized Network Performance", "Reduced Deployment Downtime"],
-        image: "/src/assets/datacenter-work.png"
+        image: "/assets/datacenter-work.png"
     },
     {
         id: "operations-bau",
@@ -88,7 +88,7 @@ export const services: Service[] = [
         features: ["Data Residency", "Cloud Security", "Multi-Cloud"],
         details: "Data sovereignty is a critical requirement for GCC enterprises. Our Sovereign Cloud services help you leverage the power of the cloud while maintaining strict adherence to regional data residency laws and security frameworks. We design and implement landing zones that are secure, compliant, and ready for your most sensitive workloads.",
         benefits: ["In-Region Data Compliance", "Enhanced Cloud Security", "Platform Agnostic Strategy", "Optimized Cloud Spends"],
-        image: "/src/assets/cloud-work.png"
+        image: "/assets/cloud-work.png"
     },
     {
         id: "datacenter-lifecycle",
@@ -98,7 +98,7 @@ export const services: Service[] = [
         features: ["Facility Design", "Rack & Stack", "24/7 Monitoring"],
         details: "The physical foundation of your IT must be as resilient as the digital layer. GKR provides end-to-end datacenter lifecycle management. From initial facility design and environmental optimization to physical security and hardware decommissioning, we manage every stage to ensure your critical infrastructure operates with maximum efficiency and reliability.",
         benefits: ["Optimized PUE (Power Efficiency)", "Enhanced Physical Security", "Maximized Rack Density", "Seamless Decommissioning"],
-        image: "/src/assets/datacenter-work.png"
+        image: "/assets/datacenter-work.png"
     }
 ];
 
@@ -190,7 +190,7 @@ export const projects: Project[] = [
         date: 'October 2025',
         duration: '6 Months',
         location: 'San Francisco, CA',
-        img: '/src/assets/project-1.png'
+        img: '/assets/project-1.png'
     },
     {
         id: 2,
@@ -204,7 +204,7 @@ export const projects: Project[] = [
         date: 'December 2025',
         duration: '4 Months',
         location: 'London, UK',
-        img: '/src/assets/project-1.png'
+        img: '/assets/project-1.png'
     },
     {
         id: 3,
@@ -218,7 +218,7 @@ export const projects: Project[] = [
         date: 'January 2026',
         duration: '8 Months',
         location: 'New York, NY',
-        img: '/src/assets/project-1.png'
+        img: '/assets/project-1.png'
     },
     {
         id: 4,
@@ -232,6 +232,6 @@ export const projects: Project[] = [
         date: 'February 2026',
         duration: '5 Months',
         location: 'Berlin, Germany',
-        img: '/src/assets/project-1.png'
+        img: '/assets/project-1.png'
     }
 ];

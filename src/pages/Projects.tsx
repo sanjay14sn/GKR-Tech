@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
                     {projects.map(project => (
                         <div key={project.id} className="group relative bg-white rounded-[20px] overflow-hidden shadow-md hover:shadow-xl transition-all animate-up">
                             <div className="relative overflow-hidden aspect-[16/10]">
-                                <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                <img src={project.img} alt={`${project.title} - ${project.category} | GKR Technology Solutions`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-secondary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <a href={`/projects/${project.id}`} className="btn btn-primary">View Project</a>
                                 </div>
