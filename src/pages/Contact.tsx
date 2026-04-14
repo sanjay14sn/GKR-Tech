@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
                                     Our Location
                                 </h4>
                                 <p className="text-gray-600">
-                                    123 Tech Avenue, Silicon Valley, CA
+                                    Awfis Omr, 111, Rajiv Gandhi Road, Old Mahabalipuram Road, OMR, Kottivakkam, Chennai, Tamil Nadu 600096
                                 </p>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                                 <h4 className="text-xl font-bold text-secondary mb-2">
                                     Phone Number
                                 </h4>
-                                <p className="text-gray-600">+91 98409 95018</p>
+                                <p className="text-gray-600">+91  9384447964</p>
                             </div>
                         </div>
 
@@ -116,11 +116,17 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="h-[250px] rounded-[20px] bg-gray-200 overflow-hidden relative group">
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-500 font-bold group-hover:scale-110 transition-transform">
-                                Google Map View
-                            </div>
-                            <div className="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+                        <div className="h-[350px] rounded-[20px] overflow-hidden border border-gray-100 shadow-inner">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0691241061368!2d80.2478857!3d12.9674286!2m3!1f0!2f0!3f0!3m2!1i1024!2i7!68!4f13.1!3m3!1m2!1s0x3a525ddc3019c1db%3A0xe428dbc736b5b7dd!2sAwfis%20Omr!5e0!3m2!1sen!2sin!4v1776154188438!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="GKR Tech Solutions Location"
+                            ></iframe>
                         </div>
                     </aside>
                 </div>
